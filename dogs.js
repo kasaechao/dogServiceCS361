@@ -4,7 +4,7 @@ const axios = require('axios').default
 app.use(express.json())
 
 
-app.get('/dog', (req, res) => {
+app.get('/', (req, res) => {
   res.send('hello')
 })
 
@@ -26,7 +26,8 @@ app.post('/', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
+  port = process.env.PORT
   console.log('connecting to server...')
   }
 )

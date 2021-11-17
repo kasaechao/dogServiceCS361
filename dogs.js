@@ -20,8 +20,8 @@ app.post('/', (req, res) => {
 
   axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${dog}`)
     .then((response) => {
-      console.log(response.data.query.search[0])
       const data = response.data.query.search[0]
+      data.url = `https://en.wikipedia.org/?curid=${data.pageid}`
       res.json(data)
     })
     .catch((err) => {
